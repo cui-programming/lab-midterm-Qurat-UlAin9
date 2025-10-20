@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, Pressable } from 'react-native';
-
+import { styles } from '../../styles/styles';
 
 
 /**
@@ -14,8 +14,8 @@ import { Text, Pressable } from 'react-native';
  */
 export default function Button({ onPress,title, children, style, ...rest }) {
   return (
-    <Pressable onPress={onPress}  {...rest}>
-      <Text >{title || children}</Text>
+    <Pressable style={[styles.button, style]} onPress={onPress}  {...rest}>
+      <Text style={styles.buttonText} >{title || children}</Text>
     </Pressable>
   );
 }

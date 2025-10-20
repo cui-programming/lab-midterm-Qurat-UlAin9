@@ -18,7 +18,7 @@ export default function TasbihList() {
   const increment = (id) => {
     setItems(prev =>
       prev.map(item =>
-        item.id === id ? { id: item.id, phrase: item.phrase, count: item.count + 1  } : item
+        item.id === id ? { ...item, count: item.count + 1  } : item
       )
     );
   };
@@ -39,14 +39,14 @@ export default function TasbihList() {
       <Text style={styles.itemName}>{item.phrase}</Text>
       <Text style={styles.counter}>{item.count}</Text>
       {/* TODO: Add increment/decrement buttons here using ui/Button */}
-      <Button title="+" onPress={() => {increment(item.id)}} />
-      <Button title="-" onPress={() => {decrement(item.id)}} />
+      <Button style={[styles.button, { backgroundColor: 'green' }]} title="+" onPress={() => {increment(item.id)}} />
+      <Button style={[styles.button, { backgroundColor: 'red' }]} title="-" onPress={() => {decrement(item.id)}} />
     </View>
   );
 
   return (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle}>Tasbih Counter</Text>
+      <Text style={[styles.headerText ]}>Tasbih Counter</Text>
       <FlatList
         data={items}
         keyExtractor={(it) => it.id}

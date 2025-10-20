@@ -19,7 +19,7 @@ export default function SearchAndAdd() {
    const exists = items.some(it =>
       it.phrase.toLowerCase().includes(phrase.toLowerCase())
     );
-    Alert.alert(exists ? 'Phrase exists' : 'Not found');
+    console.log(exists ? 'Phrase exists' : 'Not found');
 
   }
   const handleAdd=()=>{
@@ -28,7 +28,7 @@ export default function SearchAndAdd() {
     );
 
     if (exists) {
-      Alert.alert('Phrase already exists');
+      console.log('Phrase already exists');
       return;
     }
 
@@ -38,20 +38,42 @@ export default function SearchAndAdd() {
       count: 0,
     };
     setItems(prev => [...prev, newItem]); // immutable update
-    Alert.alert('Phrase added successfully');
+    console.log('Phrase added successfully');
   };
     
 
   
 
   return (
-    <View style={styles.section}>
-      {/* TODO: Implement search and add UI here using ui/TextInput and ui/Button */}
-      <TextInput placeholder='Enter phrase to Add/Search' value={phrase} onChangeText={(phrase)=>{setPhrase(phrase)}}/>
-      <Button title='Search' onPress={handleSearch}/>
-      <Button title='Add' onPress={handleAdd}/>
-      <Text>Items count: {items.length}</Text>
-
-    </View>
+  <View style={styles.section}>
+    {/* TODO: Implement search and add UI here using ui/TextInput and ui/Button */}
+      <View style={styles.rowContainer}>
+        <TextInput
+          placeholder="Enter phrase to Search"
+          value={phrase}
+          onChangeText={setPhrase}
+          style={styles.halfInput}
+        />
+        <TextInput
+          placeholder="Enter phrase to Add"
+          value={phrase}
+          onChangeText={setPhrase}
+          style={styles.halfInput}
+        />
+      </View>
+      
+      <View style={styles.rowContainer}>
+        <Button title="Search" onPress={handleSearch} style={styles.halfButton} />
+        <Button title="Add" onPress={handleAdd} style={styles.halfButton} />
+      </View>
+    <Text style={styles.smallText}>Items count: {items.length}</Text>
+    {items.map(item => (
+      <View key={item.id} style={{paddingVertical:4}}>
+        <Text>{item.phrase} — {item.count}</Text>
+      </View>
+      ))}
+  </View>
+      
+      
   );
 }

@@ -23,14 +23,28 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 12,
     padding: 15,
-    marginVertical: 10,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
     elevation: 3,
   },
 
+  rowContainer: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  width: '100%',
+  marginVertical: 8,
+},
+
+halfInput: {
+  flex: 1,
+  marginHorizontal: 10,
+  maxWidth: '45%',             
+},
+
+halfButton: {
+  flex: 1,
+  marginHorizontal: 10,
+  maxWidth: '45%',
+},
 
   textInput: {
     borderWidth: 1,
@@ -43,9 +57,11 @@ export const styles = StyleSheet.create({
 
   button: {
     backgroundColor: '#007bff',
+     width: 60,               
+    height: 40,
     paddingVertical: 10,
     borderRadius: 8,
-    marginVertical: 6,
+    margin: 6,
     alignItems: 'center',
   },
 
@@ -59,7 +75,8 @@ export const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     color: '#333',
-    marginVertical: 4,
+    fontFamily: 'Times New Roman',
+    
   },
 
  
@@ -75,25 +92,26 @@ export const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-   header: {
-    width: '100%',
-    backgroundColor: '#4C7EFF',
-    paddingVertical: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    marginBottom: 15,
-  },
+ 
 
 
   headerText: {
     fontSize: 22,
-    fontWeight: '700',
-    color: '#fff',
-    textAlign: 'center',
-    letterSpacing: 1,
+  fontWeight: '700',
+  color: '#4C7EFF',      
+  textAlign: 'center',
+  marginBottom: 10, 
   },
+
+  itemRow: {
+  flexDirection: 'row',      
+  alignItems: 'center',      // vertically centers 
+  justifyContent: 'space-between', 
+  backgroundColor: '#fff',
+  padding: 10,
+  borderRadius: 8,
+  elevation: 1,
+},
 });
 
 
